@@ -8,11 +8,11 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get -y install qt59base qt59multimedia qt59webengine
+  - sudo apt-get -y install qt59base qt59multimedia qt59webengine libtool # Undocumented?
   - source /opt/qt*/bin/qt*-env.sh
 
 script:
-  - cd src/ # Undocumented
+  - cd src/ # Undocumented?
   - qmake CONFIG+=release PREFIX=/usr
   - make -j$(nproc)
   - make INSTALL_ROOT=appdir -j$(nproc) install ; find appdir/
